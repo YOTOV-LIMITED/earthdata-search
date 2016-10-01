@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Earthdata-search by YOTOV-LIMITED</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Earthdata-search</h1>
+      <h2 class="project-tagline">Earthdata Search is a web application developed by NASA EOSDIS to enable data discovery, search, comparison, visualization, and access across EOSDIS&#39; Earth Science data holdings.</h2>
+      <a href="https://github.com/YOTOV-LIMITED/earthdata-search" class="btn">View on GitHub</a>
+      <a href="https://github.com/YOTOV-LIMITED/earthdata-search/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/YOTOV-LIMITED/earthdata-search/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="earthdata-search" class="anchor" href="#earthdata-search" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://search.earthdata.nasa.gov">Earthdata Search</a>
+</h1>
+
+<p>Visit Earthdata Search at
+<a href="https://search.earthdata.nasa.gov">https://search.earthdata.nasa.gov</a></p>
+
+<p><a href="https://travis-ci.org/nasa/earthdata-search"><img src="https://travis-ci.org/nasa/earthdata-search.svg?branch=master" alt="Build Status"></a></p>
+
+<h2>
+<a id="about" class="anchor" href="#about" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>About</h2>
+
+<p>Earthdata Search is a web application developed by <a href="http://nasa.gov">NASA</a> <a href="https://earthdata.nasa.gov">EOSDIS</a>
+to enable data discovery, search, comparison, visualization, and access across EOSDIS' Earth Science data holdings.
+It builds upon several public-facing services provided by EOSDIS, including
+the <a href="https://cmr.earthdata.nasa.gov/search/">Common Metadata Repository (CMR)</a> for data discovery and access,
+EOSDIS <a href="https://urs.earthdata.nasa.gov">User Registration System (URS)</a> authentication,
+the <a href="https://earthdata.nasa.gov/gibs">Global Imagery Browse Services (GIBS)</a> for visualization,
+and a number of OPeNDAP services hosted by data providers.</p>
+
+<h2>
+<a id="components" class="anchor" href="#components" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Components</h2>
+
+<p>In addition to the main project, we have open sourced stand-alone components built for
+Earthdata Search as separate projects with the "edsc-" (Earthdata Search components) prefix.</p>
+
+<ul>
+<li>Our timeline: <a href="https://github.com/nasa/edsc-timeline">https://github.com/nasa/edsc-timeline</a>
+</li>
+<li>Our ECHO forms implementation: <a href="https://github.com/nasa/edsc-echoforms">https://github.com/nasa/edsc-echoforms</a>
+</li>
+</ul>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
+
+<blockquote>
+<p>Copyright © 2007-2014 United States Government as represented by the Administrator of the National Aeronautics and Space Administration. All Rights Reserved.</p>
+
+<p>Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License.
+You may obtain a copy of the License at</p>
+
+<p><a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></p>
+
+<p>Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.</p>
+</blockquote>
+
+<h2>
+<a id="third-party-licenses" class="anchor" href="#third-party-licenses" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Third-Party Licenses</h2>
+
+<p>See public/licenses.txt</p>
+
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h2>
+
+<h3>
+<a id="prerequisites" class="anchor" href="#prerequisites" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Prerequisites</h3>
+
+<ul>
+<li>Ruby 2.1.2</li>
+<li>
+<a href="http://pow.cx/">Pow</a> is recommended for local testing with Earthdata Login</li>
+<li>A Ruby manager such as <a href="http://rvm.io/">RVM</a> or <a href="https://github.com/rbenv/rbenv">rbenv</a> is strongly recommended.</li>
+<li>(For shapefile support) access to an <a href="http://ogre.adc4gis.com">ogre</a> server</li>
+<li>(For placename completion) a <a href="http://www.geonames.org">GeoNames</a> account</li>
+</ul>
+
+<p>Additionally, you will need the following, which will be installed automatically by <code>bin/setup</code> on most UNIX-like systems:</p>
+
+<ul>
+<li>
+<p>Postgres development headers</p>
+
+<ul>
+<li>Mac (homebrew): <code>brew install postgresql</code>
+</li>
+<li>Ubuntu: <code>sudo apt-get install -y libpq-dev</code>
+</li>
+<li>RHEL: <code>sudo yum install -y postgresql-devel</code>
+</li>
+</ul>
+</li>
+<li>
+<p>Node.js (with npm)</p>
+
+<ul>
+<li>Mac (homebrew): <code>brew install node</code>
+</li>
+<li>Ubuntu: <code>sudo apt-get install -y nodejs</code>
+</li>
+<li>RHEL: <code>sudo curl -sL https://rpm.nodesource.com/setup | bash - &amp;&amp; sudo yum install -y nodejs</code>
+</li>
+</ul>
+</li>
+</ul>
+
+<h3>
+<a id="earthdata-login-urs-configuration" class="anchor" href="#earthdata-login-urs-configuration" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Earthdata Login (URS) Configuration</h3>
+
+<p>If you would like to set up Earthdata Login login, you will need to perform the following steps:</p>
+
+<p>Register an account on <a href="https://urs.earthdata.nasa.gov/home">the Earthdata Login home page</a></p>
+
+<p>Create an application in the Earthdata Login console.  Its callback URL should be <code>http://&lt;domain&gt;/urs_callback</code>.  If you are using Pow, this will be something
+like <code>http://earthdata-search.dev/urs_callback</code></p>
+
+<p>Click the "Feedback" icon on the Earthdata Login page and request that your new application be placed in the ECHO application group
+(required for ECHO/CMR to recognize your tokens).</p>
+
+<p>Modify line 37 of <code>config/services.yml</code> to contain your Earthdata Login application's client ID</p>
+
+<h3>
+<a id="application-configuration" class="anchor" href="#application-configuration" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Application configuration</h3>
+
+<p>If using Pow, create a symlink to your application directory, for instance <code>ln -s $(pwd) ~/.pow/earthdata-search</code>
+(making your app available at <code>http://earthdata-search.dev</code>).  If you set up Earthdata Login, ensure that the domain matches
+the callback URL specified in Earthdata Login.</p>
+
+<h3>
+<a id="initial-setup" class="anchor" href="#initial-setup" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Initial setup</h3>
+
+<p>Run</p>
+
+<pre><code>bin/setup
+</code></pre>
+
+<p>Open <code>config/application.yml</code> and edit configuration values as described in that file to set up Earthdata Login, shapefile support,
+and placename completion as appropriate.</p>
+
+<h3>
+<a id="running" class="anchor" href="#running" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Running</h3>
+
+<p>If you set up Pow, simply visit <code>http://earthdata-search.dev</code>,
+otherwise run <code>rails s</code> in the project directory and visit <code>http://localhost:3000</code>.</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/YOTOV-LIMITED/earthdata-search">Earthdata-search</a> is maintained by <a href="https://github.com/YOTOV-LIMITED">YOTOV-LIMITED</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
